@@ -105,6 +105,10 @@ class UserService implements UserServiceInterface
             $user->setStatus($data->status);
         }
 
+        if (!empty($data->year)) {
+            $user->setYear($data->year);
+        }
+
         if (!empty($data->roles)) {
             foreach ($data->roles as $roleUuid) {
                 $role = $this->userRoleService->getUserRoleRepository()->getRole($roleUuid);

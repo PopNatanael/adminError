@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Frontend\User\Factory;
 
-use Frontend\User\Form\AddYearForm;
+use Frontend\User\Form\YearForm;
 use Frontend\User\Service\UserService;
 use Frontend\Classs\Service\YearService;
 use Laminas\Form\Element\Submit;
@@ -30,14 +30,12 @@ class AddYearDelegator implements DelegatorFactoryInterface
      */
     public function __invoke(ContainerInterface $container, $name, callable $callback, array $options = null)
     {
-        $AddYearForm = $callback();
-        if ($AddYearForm instanceof AddYearForm) {
-            exit("dele");
-
+        $YearForm = $callback();
+        if ($YearForm instanceof YearForm) {
             /** @var YearService $yearService */
             $yearService = $container->get(YearService::class);
         }
 
-        return $AddYearForm;
+        return $YearForm;
     }
 }

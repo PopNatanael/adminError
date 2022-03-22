@@ -8,7 +8,7 @@ use Dot\FlashMessenger\FlashMessenger;
 use Frontend\App\Plugin\FormsPlugin;
 use Frontend\User\Controller\YearController;
 use Frontend\User\Form\UserForm;
-use Frontend\User\Form\AddYearForm;
+use Frontend\User\Form\YearForm;
 use Laminas\Form\Element\Submit;
 use Frontend\User\Factory\AddYearDelegator;
 use Frontend\User\Service\UserService;
@@ -42,7 +42,7 @@ class YearControllerFactory
         $auth = $container->get(AuthenticationService::class);
         $forms = $container->get(FormsPlugin::class);
         $userForm = $container->get(UserForm::class);
-        $yearForm = $container->get(AddYearForm::class);
+        $yearForm = $container->get(YearForm::class);
 
         return new YearController(
             $UserService,

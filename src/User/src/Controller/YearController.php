@@ -11,7 +11,7 @@ use Dot\FlashMessenger\FlashMessenger;
 use Frontend\App\Plugin\FormsPlugin;
 use Frontend\User\Entity\User;
 use Frontend\User\Form\UserForm;
-use Frontend\User\Form\AddYearForm;
+use Frontend\User\Form\YearForm;
 use Frontend\User\Factory\AddYearDelegator;
 use Frontend\User\FormData\UserFormData;
 use Frontend\User\InputFilter\EditUserInputFilter;
@@ -48,7 +48,7 @@ class YearController extends AbstractActionController
 
     protected UserForm $userForm;
 
-    protected AddYearForm $yearForm;
+    protected YearForm $yearForm;
 
     /**
      * YearController constructor.
@@ -60,7 +60,7 @@ class YearController extends AbstractActionController
      * @param FlashMessenger $messenger
      * @param FormsPlugin $forms
      * @param UserForm $userForm
-     * @param AddYearForm $yearForm
+     * @param YearForm $yearForm
      */
     public function __construct(
         UserService $userService,
@@ -71,7 +71,7 @@ class YearController extends AbstractActionController
         FlashMessenger $messenger,
         FormsPlugin $forms,
         UserForm $userForm,
-        AddYearForm $yearForm
+        YearForm $yearForm
     ) {
         $this->userService = $userService;
         $this->yearService = $yearService;
@@ -91,7 +91,7 @@ class YearController extends AbstractActionController
             $this->template->render(
                 'user::addYear',
                 [
-                    // 'form' => $this->yearForm
+                    'form' => $this->yearForm
                 ]
             )
         );

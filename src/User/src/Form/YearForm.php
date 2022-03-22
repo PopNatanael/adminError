@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Frontend\User\Form;
 
-use Frontend\User\Entity\User;
-use Frontend\User\FormData\UserFormData;
-use Frontend\User\InputFilter\UserInputFilter;
+use Frontend\Classs\Entity\Year;
+use Frontend\User\FormData\AddYearFormData;
+use Frontend\User\InputFilter\YearInputFilter;
 use Laminas\Form\Form;
 use Laminas\Form\Element;
 use Laminas\Hydrator\ObjectPropertyHydrator;
@@ -14,14 +14,12 @@ use Laminas\InputFilter\InputFilter;
 use Laminas\InputFilter\InputFilterInterface;
 
 /**
- * Class AddYearForm
+ * Class YearForm
  * @package Frontend\User\Form
  */
-class AddYearForm extends Form
+class YearForm extends Form
 {
     protected InputFilter $inputFilter;
-
-    protected array $roles = [];
 
     /**
      * RegisterForm constructor.
@@ -34,42 +32,25 @@ class AddYearForm extends Form
 
         $this->init();
 
-        $this->inputFilter = new UserInputFilter();
+        $this->inputFilter = new YearInputFilter();
         $this->inputFilter->init();
-    }
-
-    /**
-     * @param array $roles
-     */
-    public function setRoles(array $roles): void
-    {
-        $this->roles = $roles;
-
-        $this->add([
-            'name' => 'roles',
-            'type' => 'MultiCheckbox',
-            'options' => [
-                'label' => 'Roles',
-                'value_options' => $roles,
-            ],
-        ]);
     }
 
     public function init()
     {
         parent::init();
 
-        $this->setObject(new UserFormData());
+        $this->setObject(new AddYearFormData());
         $this->setHydrator(new ObjectPropertyHydrator());
 
         $this->add([
-            'name' => 'identity',
+            'name' => 'Year',
             'type' => 'text',
             'options' => [
-                'label' => 'Identity'
+                'label' => 'Year'
             ],
             'attributes' => [
-                'placeholder' => 'Identity...'
+                'placeholder' => 'Enter Year...'
             ]
         ], ['priority' => -9]);
 
@@ -77,10 +58,10 @@ class AddYearForm extends Form
             'name' => 'status',
             'type' => 'select',
             'options' => [
-                'label' => 'Account Status',
+                'label' => 'Year Status',
                 'value_options' => [
-                    ['value' => User::STATUS_ACTIVE, 'label' => User::STATUS_ACTIVE],
-                    ['value' => User::STATUS_PENDING, 'label' => User::STATUS_PENDING]
+                    ['value' => Year::STATUS_ACTIVE, 'label' => Year::STATUS_ACTIVE],
+                    ['value' => Year::STATUS_DELETED, 'label' => Year::STATUS_DELETED]
                 ]
             ],
         ], ['priority' => -30]);
@@ -89,7 +70,7 @@ class AddYearForm extends Form
             'name' => 'submit',
             'attributes' => [
                 'type' => 'submit',
-                'value' => 'Log in',
+                'value' => 'Create Year',
                 'class' => 'btn btn-primary btn-block'
             ],
             'type' => Submit::class

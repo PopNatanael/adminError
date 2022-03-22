@@ -35,8 +35,8 @@ class User extends AbstractEntity implements UserInterface
         self::STATUS_ACTIVE
     ];
 
-    public const IS_DELETED_YES = 'yes';
-    public const IS_DELETED_NO = 'no';
+    public const IS_DELETED_YES = '1';
+    public const IS_DELETED_NO = '0';
 
     /**
      * @ORM\OneToOne(targetEntity="Frontend\User\Entity\UserDetail", cascade={"persist", "remove"}, mappedBy="user")
@@ -68,7 +68,7 @@ class User extends AbstractEntity implements UserInterface
      */
     protected $status = self::STATUS_PENDING;
 
-    /**
+     /**
      * @ORM\OneToOne(targetEntity="Frontend\Classs\Entity\Year")
      * @ORM\JoinColumn(name="year", referencedColumnName="uuid", nullable=false)
      * @var Year
@@ -153,7 +153,6 @@ class User extends AbstractEntity implements UserInterface
     {
         return $this->year->getYear();
     }
-
 
     /**
      * @param UserAvatar $avatar

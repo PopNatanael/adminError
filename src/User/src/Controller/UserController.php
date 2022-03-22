@@ -11,7 +11,7 @@ use Dot\FlashMessenger\FlashMessenger;
 use Frontend\App\Plugin\FormsPlugin;
 use Frontend\User\Entity\User;
 use Frontend\User\Form\UserForm;
-use Frontend\User\Form\AddYearForm;
+use Frontend\User\Form\YearForm;
 use Frontend\User\Factory\AddYearDelegator;
 use Frontend\User\FormData\UserFormData;
 use Frontend\User\InputFilter\EditUserInputFilter;

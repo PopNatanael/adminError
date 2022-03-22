@@ -21,7 +21,7 @@ use Frontend\User\Factory\AdminRoleDelegator;
 use Frontend\User\Factory\UserControllerFactory;
 use Frontend\User\Factory\UserRoleDelegator;
 use Frontend\User\Form\AdminForm;
-use Frontend\User\Form\AddYearForm;
+use Frontend\User\Form\YearForm;
 use Frontend\Classs\Service\YearService;
 use Frontend\Classs\Service\YearServiceInterface;
 use Frontend\User\Factory\AddYearDelegator;
@@ -73,7 +73,7 @@ class ConfigProvider
                 UserRoleService::class => AnnotatedServiceFactory::class,
                 AdminForm::class => ElementFactory::class,
                 UserForm::class => ElementFactory::class,
-                AddYearForm::class => ElementFactory::class,
+                YearForm::class => ElementFactory::class,
                 AuthenticationService::class => AuthenticationServiceFactory::class,
                 AuthenticationAdapter::class => AuthenticationAdapterFactory::class,
             ],
@@ -90,7 +90,7 @@ class ConfigProvider
                 UserForm::class => [
                     UserRoleDelegator::class
                 ],
-                AddYearForm::class => [
+                YearForm::class => [
                     AddYearDelegator::class
                 ]
             ]

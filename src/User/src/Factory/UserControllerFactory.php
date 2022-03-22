@@ -8,7 +8,7 @@ use Dot\FlashMessenger\FlashMessenger;
 use Frontend\App\Plugin\FormsPlugin;
 use Frontend\User\Controller\UserController;
 use Frontend\User\Form\UserForm;
-use Frontend\User\Form\AddYearForm;
+use Frontend\User\Form\YearForm;
 use Laminas\Form\Element\Submit;
 use Frontend\User\Factory\AddYearDelegator;
 use Frontend\User\Service\UserService;

@@ -18,7 +18,7 @@ class UserFormData
     public ?string $firstName = null;
     public ?string $lastName = null;
     public ?string $status = null;
-    public ?string $year = null;
+    public ?Year $year = null;
     public array $roles = [];
 
     /**
