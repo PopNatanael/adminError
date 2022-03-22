@@ -81,12 +81,11 @@ class YearController extends AbstractActionController
         $this->messenger = $messenger;
         $this->forms = $forms;
         $this->userForm = $userForm;
-        $this->yearForm = $yearForm
+        $this->yearForm = $yearForm;
     }
 
     public function addYearAction(): ResponseInterface
     {
-
         return new HtmlResponse(
             $this->template->render(
                 'user::addYear',

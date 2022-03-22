@@ -8,7 +8,6 @@ use Frontend\Classs\Entity\Year;
 use Frontend\User\FormData\AddYearFormData;
 use Frontend\User\InputFilter\YearInputFilter;
 use Laminas\Form\Form;
-use Laminas\Form\Element;
 use Laminas\Hydrator\ObjectPropertyHydrator;
 use Laminas\InputFilter\InputFilter;
 use Laminas\InputFilter\InputFilterInterface;
@@ -44,7 +43,7 @@ class YearForm extends Form
         $this->setHydrator(new ObjectPropertyHydrator());
 
         $this->add([
-            'name' => 'Year',
+            'name' => 'year',
             'type' => 'text',
             'options' => [
                 'label' => 'Year'
@@ -68,13 +67,12 @@ class YearForm extends Form
 
         $this->add([
             'name' => 'submit',
+            'type' => 'submit',
             'attributes' => [
                 'type' => 'submit',
-                'value' => 'Create Year',
-                'class' => 'btn btn-primary btn-block'
-            ],
-            'type' => Submit::class
-        ]);
+                'value' => 'Update account'
+            ]
+        ], ['priority' => -100]);
     }
 
     /**
